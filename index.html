@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <my-app></my-app>
+    </div>
+    <script src="./index.js" type="module"></script>
+
+    <script>
+    document.querySelector("my-app").addEventListener('touch-me', () => { console.log('actual element does work')}, true);
+    document.querySelector("#test").addEventListener('click', () => { console.log('click capture does work')}, true);
+    document.querySelector("#test").addEventListener('touch-me', () => { console.log('touch-me capture does work')}, true);
+    document.querySelector("#test").addEventListener('touch-me', () => { console.log('touch-me bubble does not')}, false);
+    document.querySelector("#test").addEventListener('click', () => { console.log('click bubble does work')}, false);
+    </script>
+</body>
+</html>
